@@ -8,23 +8,30 @@ def speak(text):
     engine.runAndWait()
 
 def processcommand(c):
-    print("Command:", c)
- 
-    if "open google" in c:
+    c = c.lower().replace("jarvis", "").strip()
+
+    print("Cleaned:", c)
+
+    if "google" in c:
         speak("Opening Google")
         webbrowser.open("https://google.com")
 
-    elif "open youtube" in c:
+    elif "youtube" in c:
         speak("Opening YouTube")
         webbrowser.open("https://youtube.com")
 
-    elif "open facebook" in c:
+    elif "facebook" in c:
         speak("Opening Facebook")
         webbrowser.open("https://facebook.com")
 
-    elif "open linkedin" in c:
+    elif "linkedin" in c:
         speak("Opening LinkedIn")
         webbrowser.open("https://linkedin.com")
+
+    else:
+        speak("Command not recognized")
+
+
 
 if __name__ == "__main__":
     speak("Initializing Jarvis")
